@@ -1,0 +1,40 @@
+import { createContext, useState } from "react";
+import PropTypes from 'prop-types';
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import auth from "../firebase/firebase.confige";
+
+
+
+
+
+export const AuthContext = createContext(null);
+
+const provider = new GoogleAuthProvider();
+const AuthProvider = ({ children }) => {
+     const [user, setuser] = useState(null);
+
+     // Google Login
+     const googleLogin = () => {
+          return signInWithPopup(auth, provider)
+     }
+
+     const authInfo = {
+          user,
+          googleLogin
+
+     }
+     return (
+          <AuthContext.Provider value={authInfo}>
+               {children}
+          </AuthContext.Provider>
+     );
+};
+
+export default AuthProvider;
+
+AuthProvider.propTypes = {
+     // You can declare that a prop is a specific JS primitive. By default, these
+     // are all optional.
+     children: PropTypes.node,
+
+}
