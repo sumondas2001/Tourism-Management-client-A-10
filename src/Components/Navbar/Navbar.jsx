@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const Navbar = () => {
+     const { user, logOut } = useContext(AuthContext);
      const [theme, setTheme] = useState('light');
 
      useEffect(() => {
@@ -19,6 +22,19 @@ const Navbar = () => {
           } else {
                setTheme('light')
           }
+     };
+
+     // user Log Out 
+     const handelLogOut = () => {
+          console.log('delete')
+
+          logOut()
+               .then(() => {
+                    toast.success("Log - Out Successful.");
+
+               }).catch((error) => {
+                    toast.error(error.message)
+               });
      }
 
 
@@ -127,32 +143,39 @@ const Navbar = () => {
 
 
 
-                         <div className="navbar-end gap-4">
-                              <div className="dropdown dropdown-end">
-                                   <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                        <div className="w-10 rounded-full">
-                                             <img
-                                                  alt="Tailwind CSS Navbar component"
-                                                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                                        </div>
-                                   </div>
-                                   <ul
-                                        tabIndex={0}
-                                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                        <li>
-                                             <a className="justify-between">
-                                                  Profile
-                                                  <span className="badge">New</span>
-                                             </a>
-                                        </li>
-                                        <li><a>Settings</a></li>
-                                        <li><a>Logout</a></li>
-                                   </ul>
-                              </div>
-                              <Link to={"/login"}>
-                                   <button className="btn px-4 font-bold text-black hover:bg-cyan-600 py-2 bg-cyan-400">Login</button>
 
-                              </Link>
+
+                         <div className="navbar-end gap-4">
+
+                              {
+                                   user ? <div className="dropdown dropdown-end">
+                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                             <div className="w-10 rounded-full">
+                                                  <img
+                                                       alt="User Photo"
+                                                       src={user ? user.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
+                                             </div>
+                                        </div>
+                                        <ul
+                                             tabIndex={0}
+                                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52  p-2 shadow">
+                                             <li >
+                                                  <p className="text-xs font-medium ">{user?.email}</p>
+                                             </li>
+                                             <li><a className="text-base font-medium">{user?.displayName || 'user name not found'}</a></li>
+                                             <button
+                                                  onClick={handelLogOut}
+                                                  className="  p-2 w-full font-semibold rounded-lg mt-2 hover:bg-red-500 bg-red-600">LogOut</button>
+                                        </ul>
+                                   </div> : <div>
+                                        <Link to={"/login"}>
+                                             <button className="btn px-4 font-bold text-black hover:bg-cyan-600 py-2 bg-cyan-400">Login</button>
+
+                                        </Link>
+                                   </div>
+                              }
+
+
 
 
 
@@ -189,7 +212,7 @@ const Navbar = () => {
 
 
                </div>
-          </div>
+          </div >
      );
 };
 

@@ -20,7 +20,8 @@ const Login = () => {
                .then(result => {
                     console.log(result.user)
                     toast.success('Login Successfully');
-                    from.reset()
+                    from.reset();
+
                })
                .catch(error => {
 
@@ -32,9 +33,9 @@ const Login = () => {
      // google login
      const handelGoogleLogin = () => {
           googleLogin()
-               .then(() => {
+               .then((result) => {
                     toast.success('Login Successfully');
-
+                    console.log(result.user)
 
                })
                .catch(error => {
