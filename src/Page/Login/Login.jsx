@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 
 const Login = () => {
-     const { googleLogin } = useContext(AuthContext)
+     const { googleLogin, gitHubLogin, loginUser } = useContext(AuthContext)
 
 
      const handelLogin = (event) => {
@@ -13,10 +13,23 @@ const Login = () => {
           const from = event.target;
           const email = from.email.value;
           const password = from.password.value;
-          const login = { email, password };
 
+          // Login user email and password
 
-     }
+          loginUser(email, password)
+               .then(result => {
+                    console.log(result.user)
+                    toast.success('Login Successfully');
+                    from.reset()
+               })
+               .catch(error => {
+
+                    const errorMessage = error.message;
+                    toast.error(errorMessage);
+
+               })
+     };
+     // google login
      const handelGoogleLogin = () => {
           googleLogin()
                .then(() => {
@@ -30,6 +43,23 @@ const Login = () => {
                     toast.error(errorMessage);
 
                })
+     };
+     // GitHub Login 
+
+     const handelGitHubLogin = () => {
+          gitHubLogin()
+               .then((result) => {
+                    toast.success('Login Successfully');
+                    console.log(result.user)
+
+               })
+               .catch(error => {
+
+                    const errorMessage = error.message;
+                    toast.error(errorMessage);
+
+               })
+
      }
      return (
           <div className="hero bg-base-200 min-h-screen">
@@ -73,7 +103,7 @@ const Login = () => {
                          </form>
                          <div className="text-center mb-4 ">
                               <button onClick={handelGoogleLogin} className="btn mr-4 btn-outline btn-accent hover:bg-cyan-600 font-semibold">Google</button>
-                              <button className="btn  btn-outline btn-primary font-semibold ml-4">GitHub</button>
+                              <button onClick={handelGitHubLogin} className="btn  btn-outline btn-primary font-semibold ml-4">GitHub</button>
                          </div>
                     </div>
                </div>
