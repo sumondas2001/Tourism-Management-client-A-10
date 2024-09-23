@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { useContext } from "react";
+import toast from "react-hot-toast";
 
 
 const Register = () => {
+     const { createUser } = useContext(AuthContext);
 
      const handelRegister = (event) => {
           event.preventDefault();
@@ -13,6 +17,19 @@ const Register = () => {
           const photo = from.photoUrl.value;
           const login = { name, email, password, photo };
           console.log(login)
+
+          createUser(email, password)
+               .then(() => {
+
+                    toast.success("Register Successfully");
+                    from.reset();
+               })
+               .catch(error => {
+
+                    const errorMessage = error.message;
+                    toast.error(errorMessage);
+                    from.reset()
+               })
      }
      return (
           <div className="hero bg-base-200 min-h-screen">
@@ -40,7 +57,7 @@ const Register = () => {
                                    <label className="label">
                                         <span className="label-text">Photo Url</span>
                                    </label>
-                                   <input type="text" name="photoUrl" placeholder="photo Url" className="input input-bordered" required />
+                                   <input type="text" name="photoUrl" placeholder="photo Url" className="input input-bordered" />
                               </div>
                               <div className="form-control">
                                    <label className="label">

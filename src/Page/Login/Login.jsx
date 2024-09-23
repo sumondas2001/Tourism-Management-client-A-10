@@ -11,7 +11,6 @@ const Login = () => {
      const handelLogin = (event) => {
           event.preventDefault();
           const from = event.target;
-
           const email = from.email.value;
           const password = from.password.value;
           const login = { email, password };
@@ -21,14 +20,15 @@ const Login = () => {
      const handelGoogleLogin = () => {
           googleLogin()
                .then(() => {
-
                     toast.success('Login Successfully');
+
 
                })
                .catch(error => {
 
                     const errorMessage = error.message;
                     toast.error(errorMessage);
+
                })
      }
      return (
