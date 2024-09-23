@@ -32,11 +32,11 @@ const Navbar = () => {
                          isPending
                               ? "pending"
                               : isActive
-                                   ? "text-cyan-400 border-b-2 font-semibold border-cyan-300 "
-                                   : "hover:text-cyan-400"
+                                   ? "text-cyan-600 border-b-2 font-semibold border-cyan-800"
+                                   : "hover:border-cyan-800"
                     }
                >
-                    <span>Home</span>
+                    <span className="text-black ">Home</span>
                </NavLink>
           </li>
           <li>
@@ -50,7 +50,7 @@ const Navbar = () => {
                                    : "hover:text-cyan-400"
                     }
                >
-                    <span>All Tourists Spot</span>
+                    <span className="text-black text-base">All Tourists Spot</span>
                </NavLink>
           </li>
           <li>
@@ -60,11 +60,11 @@ const Navbar = () => {
                          isPending
                               ? "pending"
                               : isActive
-                                   ? "text-cyan-400 border-b-2 font-semibold border-cyan-300 "
-                                   : "hover:text-cyan-400"
+                                   ? "text-cyan-600 border-b-2 font-semibold border-cyan-800 "
+                                   : "hover:text-cyan-800"
                     }
                >
-                    <span>Add Tourists Spot</span>
+                    <span className="text-black">Add Tourists Spot</span>
                </NavLink>
           </li>
           <li>
@@ -74,11 +74,11 @@ const Navbar = () => {
                          isPending
                               ? "pending"
                               : isActive
-                                   ? "text-cyan-400 border-b-2 font-semibold border-cyan-300 "
-                                   : "hover:text-cyan-400"
+                                   ? "text-cyan-600 border-b-2 font-semibold border-cyan-800 "
+                                   : "hover:text-cyan-800"
                     }
                >
-                    <span>My List</span>
+                    <span className="text-black ">My List</span>
                </NavLink>
           </li>
      </>
@@ -87,7 +87,7 @@ const Navbar = () => {
 
      return (
           <div className="h-20">
-               <div className=" shadow-2xl fixed  w-full z-10 ">
+               <div className=" shadow-2xl fixed w-full z-50 bg-[#cadbfa] ">
                     <div className="navbar py-3   md:max-w-[1300px] mx-auto">
                          <div className="navbar-start">
                               <div className="dropdown">
@@ -149,8 +149,10 @@ const Navbar = () => {
                                         <li><a>Logout</a></li>
                                    </ul>
                               </div>
-                              <button className="btn px-4 font-bold text-black hover:bg-cyan-600 py-2 bg-cyan-400">Login</button>
+                              <Link to={"/login"}>
+                                   <button className="btn px-4 font-bold text-black hover:bg-cyan-600 py-2 bg-cyan-400">Login</button>
 
+                              </Link>
 
 
 
@@ -164,7 +166,7 @@ const Navbar = () => {
 
                                    {/* sun icon */}
                                    <svg
-                                        className="swap-off h-10 w-10 fill-current"
+                                        className="swap-off h-10 text-black w-10 fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24">
                                         <path
@@ -173,7 +175,7 @@ const Navbar = () => {
 
                                    {/* moon icon */}
                                    <svg
-                                        className="swap-on h-10 w-10 fill-current"
+                                        className="swap-on h-10 w-10 text-black fill-current"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24">
                                         <path

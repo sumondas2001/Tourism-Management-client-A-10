@@ -1,8 +1,10 @@
 
 
 const Carousel = () => {
+
+
      return (
-          <div className="carousel w-full mt-4">
+          <div className="carousel w-full mt-6">
                <div id="slide1" className="carousel-item relative w-full">
                     <img
                          src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
@@ -40,7 +42,14 @@ const Carousel = () => {
                     </div>
                </div>
           </div>
+
+
+
+
      );
+
 };
+
+
 
 export default Carousel;

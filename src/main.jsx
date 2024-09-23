@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Root from './Root/Root.jsx';
 import Home from './Components/Home/Home.jsx';
+import Login from './Page/Login/Login.jsx';
+import Register from './Page/Regiseter/Register.jsx';
 
 
 
@@ -19,7 +21,15 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
-      }
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
     ]
   }
 ])
