@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 
 const Register = () => {
-     const { createUser } = useContext(AuthContext);
+     const { createUser, userUpdateProfile } = useContext(AuthContext);
      const [error, setError] = useState(null);
 
      const handelRegister = (event) => {
@@ -15,12 +15,14 @@ const Register = () => {
           const name = from.name.value;
           const email = from.email.value;
           const password = from.password.value;
-          const photo = from.photoUrl.value;
-          const login = { name, email, password, photo };
-          console.log(login)
+          const photoUrl = from.photoUrl.value;
+          const login = { name, email, password, photoUrl };
+          console.log(login);
 
 
-          if (/^(?=.*?[A-Z])(?=.*?[a-z]).{6,}$/.test(password)) {
+
+
+          if (!/^(?=.*?[A-Z])(?=.*?[a-z]).{6,}$/.test(password)) {
 
                return setError('Minimum six characters, at least one uppercase letter, ')
           }
@@ -29,7 +31,8 @@ const Register = () => {
                .then(() => {
                     toast.success("Register Successfully");
                     from.reset();
-
+                    // user Update Profile
+                    userUpdateProfile(name, photoUrl)
 
                })
                .catch(error => {
