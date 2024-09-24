@@ -44,10 +44,12 @@ const Register = () => {
                })
      }
      return (
-          <div className="hero bg-base-200 min-h-screen">
-               <div className="hero-content flex-col ">
-                    <div className="">
-                         <h1 className="text-4xl font-bold text-cyan-500">Register Now!</h1>
+          <div className="hero bg-base-200 ">
+               <div className="hero-content flex-col-reverse lg:flex-row-reverse">
+                    <div className="text-center lg:text-left">
+                         <h1 className="text-4xl font-bold text-cyan-500 mb-4 text-center">Register now!</h1>
+
+                         <img className="w-[570px] " src="https://i.ibb.co.com/4Jr5z8c/10780544-19199509.jpg" alt="" />
 
                     </div>
                     <div className="card bg-base-100 w-screen max-w-sm shrink-0 shadow-2xl">

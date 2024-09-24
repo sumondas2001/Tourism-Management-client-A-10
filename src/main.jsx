@@ -11,6 +11,8 @@ import Home from './Components/Home/Home.jsx';
 import Login from './Page/Login/Login.jsx';
 import Register from './Page/Regiseter/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import ErrorPage from './Page/Error/ErrorPage.jsx';
+import AddTouristsSpot from './Page/AddTouristsSpot/AddTouristsSpot.jsx';
 
 
 
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -31,6 +34,10 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
       },
+      {
+        path: '/addTouristsSpot',
+        element: <AddTouristsSpot></AddTouristsSpot>
+      }
     ]
   }
 ])

@@ -129,7 +129,7 @@ const Navbar = () => {
                                    </ul>
                               </div>
                               <div className="md:size-12 size-10">
-                                   <Link>
+                                   <Link to={'/'}>
                                         <img src={'https://i.postimg.cc/7hPq3Wmg/travelling.png'} alt="" />
                                    </Link>
                               </div>
@@ -146,38 +146,6 @@ const Navbar = () => {
 
 
                          <div className="navbar-end gap-4">
-
-                              {
-                                   user ? <div className="dropdown dropdown-end">
-                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                             <div className="w-10 rounded-full">
-                                                  <img
-                                                       alt="User Photo"
-                                                       src={user ? user.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
-                                             </div>
-                                        </div>
-                                        <ul
-                                             tabIndex={0}
-                                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52  p-2 shadow">
-                                             <li >
-                                                  <p className="text-base font-medium ">{user?.email}</p>
-                                             </li>
-                                             <li><a className="text-base font-medium">{user?.displayName || 'user name not found'}</a></li>
-                                             <button
-                                                  onClick={handelLogOut}
-                                                  className="  p-2 w-full font-semibold rounded-lg mt-2 hover:bg-red-500 bg-red-600">LogOut</button>
-                                        </ul>
-                                   </div> : <div>
-                                        <Link to={"/login"}>
-                                             <button className="btn px-4 font-bold text-black hover:bg-cyan-600 py-2 bg-cyan-400">Login</button>
-
-                                        </Link>
-                                   </div>
-                              }
-
-
-
-
 
                               {/* dark button*/}
 
@@ -205,6 +173,34 @@ const Navbar = () => {
                                              d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
                                    </svg>
                               </label>
+
+                              {
+                                   user ? <div className="dropdown dropdown-end">
+                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                             <div className="w-10 rounded-full">
+                                                  <img
+                                                       alt="User Photo"
+                                                       src={user ? user.photoURL : 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'} />
+                                             </div>
+                                        </div>
+                                        <ul
+                                             tabIndex={0}
+                                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52  p-2 shadow">
+                                             <li >
+                                                  <p className="text-base font-medium ">{user?.email}</p>
+                                             </li>
+                                             <li><a className="text-base font-medium">{user?.displayName || 'user name not found'}</a></li>
+                                             <button
+                                                  onClick={handelLogOut}
+                                                  className="  p-2 w-full font-semibold rounded-lg mt-2 hover:bg-red-500 bg-red-600">LogOut</button>
+                                        </ul>
+                                   </div> : <div>
+                                        <Link to={"/login"}>
+                                             <button className="btn px-4 font-bold text-black hover:bg-cyan-600 py-2 bg-cyan-400">Login</button>
+
+                                        </Link>
+                                   </div>
+                              }
                          </div>
                     </div>
 
