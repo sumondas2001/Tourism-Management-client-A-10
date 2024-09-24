@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 
 
 const Register = () => {
      const { createUser } = useContext(AuthContext);
+     const [error, setError] = useState(null);
 
      const handelRegister = (event) => {
           event.preventDefault();
@@ -18,18 +19,25 @@ const Register = () => {
           const login = { name, email, password, photo };
           console.log(login)
 
+
+          if (/^(?=.*?[A-Z])(?=.*?[a-z]).{6,}$/.test(password)) {
+
+               return setError('Minimum six characters, at least one uppercase letter, ')
+          }
+
           createUser(email, password)
                .then(() => {
-
                     toast.success("Register Successfully");
                     from.reset();
+
+
                })
                .catch(error => {
 
                     const errorMessage = error.message;
 
                     toast.error(errorMessage);
-                    from.reset()
+
                })
      }
      return (
@@ -79,6 +87,9 @@ const Register = () => {
                                              Please Login</p>
                                    </Link>
 
+                              </div>
+                              <div>
+                                   <span className="text-red-600 text-xs">{error}</span>
                               </div>
                               <div className="form-control mt-6">
 
