@@ -103,7 +103,7 @@ const Navbar = () => {
 
      return (
           <div className="h-20">
-               <div className=" shadow-2xl fixed w-full z-50 bg-[#cadbfa] ">
+               <div className=" shadow-2xl fixed  w-full z-50 bg-[#cadbfa] ">
                     <div className="navbar py-3   md:max-w-[1300px] mx-auto">
                          <div className="navbar-start">
                               <div className="dropdown">

@@ -5,11 +5,13 @@ import { Toaster } from "react-hot-toast";
 
 const Root = () => {
      return (
-          <div>
+          <div className="font-aleo ">
                <Navbar></Navbar>
 
 
-               <Outlet></Outlet>
+               <div className="">
+                    <Outlet></Outlet>
+               </div>
                <Toaster />
 
           </div>

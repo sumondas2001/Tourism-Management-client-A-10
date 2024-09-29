@@ -7,24 +7,24 @@ const Carousel = () => {
 
           <div>
                <div className="carousel w-full">
-                    <div id="item1" className="carousel-item w-full md:h-[450px]">
+                    <div id="item1" className="carousel-item w-full md:h-[500px]">
                          <img
-                              src="https://i.postimg.cc/KjYM8KZP/cristiano-pinto-a-B39-Y7-KGb-M-unsplash.jpg"
+                              src="https://i.ibb.co.com/qW95gMt/29b45941879a893e9bfaa4a923ffbebf.jpg"
                               className="w-full" />
                     </div>
-                    <div id="item2" className="carousel-item w-full md:h-[450px]">
+                    <div id="item2" className="carousel-item w-full md:h-[500px]">
                          <img
-                              src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+                              src="https://i.ibb.co.com/CHdfnzz/nopparuj-lamaikul-l-Ar6o-Op-Xv-A-unsplash.jpg"
                               className="w-full" />
                     </div>
-                    <div id="item3" className="carousel-item w-full md:h-[450px]">
+                    <div id="item3" className="carousel-item w-full md:h-[500px]">
                          <img
-                              src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+                              src="https://i.ibb.co.com/dBHsZmz/herry-sutanto-p-TTe-Qm-Ne-HPM-unsplash.jpg"
                               className="w-full" />
                     </div>
-                    <div id="item4" className="carousel-item w-full md:h-[450px]">
+                    <div id="item4" className="carousel-item w-full md:h-[500px]">
                          <img
-                              src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+                              src="https://i.ibb.co.com/c6m3gSd/pexels-allphoto-bangkok-1628521-3226403.jpg"
                               className="w-full" />
                     </div>
                </div>
@@ -42,3 +42,7 @@ const Carousel = () => {
 
 
 export default Carousel;
+
+
+
+

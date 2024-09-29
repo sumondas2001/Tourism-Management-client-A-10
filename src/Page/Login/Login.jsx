@@ -68,7 +68,7 @@ const Login = () => {
                     <div className="text-center lg:text-left">
                          <h1 className="text-4xl font-bold text-cyan-500 mb-4 text-center">Login now!</h1>
 
-                         <img className="w-[570px] " src="https://i.ibb.co.com/4Jr5z8c/10780544-19199509.jpg" alt="" />
+                         <img className="w-[570px] " src="https://i.ibb.co.com/jgspV9x/10780544-19199509-removebg.png" alt="" />
 
                     </div>
                     <div className="card bg-base-100 w-screen max-w-sm shrink-0 shadow-2xl">
