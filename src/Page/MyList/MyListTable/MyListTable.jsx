@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'; // ES6
+import { Link } from 'react-router-dom';
 
 
 const MyListTable = ({ spot }) => {
@@ -8,9 +9,7 @@ const MyListTable = ({ spot }) => {
      const handelDelete = (_id) => {
           console.log('delete ', _id)
      };
-     const handelUpdate = (_id) => {
-          console.log('Update ', _id)
-     }
+
      return (
           <div >
                <div className="overflow-x-auto border">
@@ -54,7 +53,9 @@ const MyListTable = ({ spot }) => {
 
 
                                    <th>
-                                        <button onClick={() => handelUpdate(_id)} className="btn  bg-emerald-400 hover:bg-emerald-500 text-black">Update</button>
+                                        <Link to={`/upDate/${_id}`}>
+                                             <button className="btn  bg-emerald-400 hover:bg-emerald-500 text-black">Update</button>
+                                        </Link>
                                    </th>
                                    <th>
                                         <button onClick={() => handelDelete(_id)} className="btn bg-red-700 hover:bg-red-500 text-black">Delete</button>
