@@ -15,6 +15,7 @@ import ErrorPage from './Page/Error/ErrorPage.jsx';
 import AddTouristsSpot from './Page/AddTouristsSpot/AddTouristsSpot.jsx';
 import AllTouristsSpot from './Page/AllTouristsSpot/AllTouristsSpot.jsx';
 import ViewDetails from './Components/ViewDetails/ViewDetails.jsx';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 
 
 
@@ -38,7 +39,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/addTouristsSpot',
-        element: <AddTouristsSpot></AddTouristsSpot>
+        element: <PrivateRoute>
+          <AddTouristsSpot></AddTouristsSpot>
+        </PrivateRoute>
       },
       {
         path: '/allTouristsSpot',
@@ -47,7 +50,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/viewDetails/:id',
-        element: <ViewDetails></ViewDetails>,
+        element: <PrivateRoute>
+          <ViewDetails></ViewDetails>
+        </PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/viewDetails/${params.id}`)
       }
     ]

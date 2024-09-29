@@ -17,10 +17,10 @@ const ViewDetails = () => {
 
      return (
 
-          <div className="mt-10 md:mx-6 mx-3 bg-cyan-100 py-6 md:px-6 px-4 rounded-xl">
+          <div className="mt-10 md:mx-6 mx-3  py-6 md:px-6 px-4 rounded-xl">
                <div className="  lg:flex lg:gap-10  gap-4 ">
                     <div>
-                         <img className="lg:max-w-4xl" src={photoUrl} alt="" />
+                         <img className="lg:max-w-4xl rounded-t-xl" src={photoUrl} alt="" />
                     </div>
                     <div className="flex flex-col justify-between py-10">
                          <div className="md:mt-4">
@@ -37,8 +37,6 @@ const ViewDetails = () => {
                                    <h4 className="lg:text-xl mb-2 font-semibold">Travel Time : <span className="text-red-500  font-black">{travelTime}</span></h4>
                                    <h4 className="lg:text-xl mb-2 font-semibold">Total Visitors Per Year : <span className="text-red-500  font-black ">{totalVisitorsPerYear}</span></h4>
                               </div>
-
-
 
                          </div>
 

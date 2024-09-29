@@ -13,30 +13,36 @@ const GoogleProvider = new GoogleAuthProvider();
 const GithubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
      const [user, setUser] = useState(null);
+     const [loading, setLoading] = useState(true);
 
      // Google Login
      const googleLogin = () => {
+          setLoading(true);
           return signInWithPopup(auth, GoogleProvider);
 
      };
 
      // create user
      const createUser = (email, password) => {
+          setLoading(true);
           return createUserWithEmailAndPassword(auth, email, password);
      };
      // github login
      const gitHubLogin = () => {
+          setLoading(true);
           return signInWithPopup(auth, GithubProvider);
      };
      // Login User email and password
 
      const loginUser = (email, password) => {
+          setLoading(true);
           return signInWithEmailAndPassword(auth, email, password)
      };
 
      //  User Log Out 
 
      const logOut = () => {
+          setLoading(true);
           return signOut(auth)
 
      };
@@ -56,6 +62,7 @@ const AuthProvider = ({ children }) => {
      useEffect(() => {
           onAuthStateChanged(auth, (currentUser) => {
                setUser(currentUser);
+               setLoading(false);
           })
      }, [])
 
@@ -66,6 +73,7 @@ const AuthProvider = ({ children }) => {
           gitHubLogin,
           loginUser,
           logOut,
+          loading,
           userUpdateProfile
 
 
