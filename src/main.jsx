@@ -13,6 +13,8 @@ import Register from './Page/Regiseter/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import ErrorPage from './Page/Error/ErrorPage.jsx';
 import AddTouristsSpot from './Page/AddTouristsSpot/AddTouristsSpot.jsx';
+import AllTouristsSpot from './Page/AllTouristsSpot/AllTouristsSpot.jsx';
+import ViewDetails from './Components/ViewDetails/ViewDetails.jsx';
 
 
 
@@ -37,6 +39,16 @@ const router = createBrowserRouter([
       {
         path: '/addTouristsSpot',
         element: <AddTouristsSpot></AddTouristsSpot>
+      },
+      {
+        path: '/allTouristsSpot',
+        element: <AllTouristsSpot></AllTouristsSpot>,
+        loader: () => fetch('http://localhost:5000/allTouristsSpot')
+      },
+      {
+        path: '/viewDetails/:id',
+        element: <ViewDetails></ViewDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/viewDetails/${params.id}`)
       }
     ]
   }
