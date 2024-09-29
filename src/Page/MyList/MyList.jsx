@@ -5,7 +5,8 @@ import MyListTable from "./MyListTable/MyListTable";
 
 const MyList = () => {
      const { user } = useContext(AuthContext);
-     const [item, setItem] = useState([])
+     const [item, setItem] = useState([]);
+
 
 
      useEffect(() => {
@@ -19,7 +20,10 @@ const MyList = () => {
      return (
           <div className="mx-10 mt-4">
                {
-                    item.map(spot => <MyListTable spot={spot} key={spot._id}></MyListTable>)
+                    item.map(spot => <MyListTable spot={spot}
+                         setItem={setItem}
+                         item={item}
+                         key={spot._id}></MyListTable>)
                }
           </div>
      );

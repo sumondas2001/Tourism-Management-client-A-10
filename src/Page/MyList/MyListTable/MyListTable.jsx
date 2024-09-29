@@ -1,13 +1,67 @@
+
 import PropTypes from 'prop-types'; // ES6
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
-const MyListTable = ({ spot }) => {
+const MyListTable = ({ spot, item, setItem }) => {
+
      const { photoUrl, touristsSpotName, countryName, location, seasonality, _id } = spot;
 
 
      const handelDelete = (_id) => {
-          console.log('delete ', _id)
+
+
+          const swalWithBootstrapButtons = Swal.mixin({
+               customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger"
+               },
+               buttonsStyling: false
+          });
+          swalWithBootstrapButtons.fire({
+               title: "Are you sure?",
+               text: "You won't be able to revert this!",
+               icon: "warning",
+               showCancelButton: true,
+               confirmButtonText: "Yes, delete it!",
+               cancelButtonText: "No, cancel!",
+               reverseButtons: true
+          }).then((result) => {
+               if (result.isConfirmed) {
+
+                    fetch(`http://localhost:5000/myList/${_id}`, {
+                         method: 'DELETE'
+                    })
+                         .then(res => res.json())
+                         .then(data => {
+                              if (data.deletedCount > 0) {
+                                   swalWithBootstrapButtons.fire({
+                                        title: "Deleted!",
+                                        text: "Your Listed sport  has been deleted.",
+                                        icon: "success"
+                                   });
+                                   const remaining = item.filter(soprt => soprt._id !== _id);
+                                   setItem(remaining)
+                              }
+                              console.log(data)
+                         })
+
+
+               } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+               ) {
+                    swalWithBootstrapButtons.fire({
+                         title: "Cancelled",
+                         text: "Your imaginary file is safe :)",
+                         icon: "error"
+                    });
+               }
+          });
+
+
+          // 
      };
 
      return (
@@ -75,5 +129,6 @@ const MyListTable = ({ spot }) => {
 export default MyListTable;
 
 MyListTable.propTypes = {
-     spot: PropTypes.object
+     spot: PropTypes.object,
+
 }
