@@ -6,8 +6,6 @@ const TouristsSpot = ({ spot }) => {
      const { photoUrl, touristsSpotName, averageCost, seasonality, travelTime, totalVisitorsPerYear, _id } = spot;
 
 
-
-
      return (
           <div className=" mt-10 card shadow-2xl ">
                <img className=" h-64 rounded-t-xl" src={photoUrl} alt="" />
@@ -32,6 +30,6 @@ export default TouristsSpot;
 
 TouristsSpot.propTypes = {
 
-     spot: PropTypes.node,
+     spot: PropTypes.object,
 
 }
