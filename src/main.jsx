@@ -18,6 +18,8 @@ import ViewDetails from './Components/ViewDetails/ViewDetails.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import MyList from './Page/MyList/MyList.jsx';
 import UpDate from './Components/UpDate/UpDate.jsx';
+import CountrySpot from './Components/CountrySpot/CountrySpot.jsx';
+
 
 
 
@@ -29,7 +31,9 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/touristsSportsSection')
+
       },
       {
         path: '/login',
@@ -59,14 +63,22 @@ const router = createBrowserRouter([
       },
       {
         path: '/myList',
-        element: <MyList></MyList>
+        element: <PrivateRoute><MyList></MyList></PrivateRoute>
       },
       {
         path: '/upDate/:id',
         element: <UpDate></UpDate>,
         loader: ({ params }) => fetch(`http://localhost:5000/allTouristsSpot/${params.id}`)
 
+      },
+      {
+        path: '/country/:country_Name',
+        element: <CountrySpot></CountrySpot>,
+        loader: ({ params }) => fetch(`http://localhost:5000/country/${params.country_Name}`)
       }
+
+
+
     ]
   }
 ])
