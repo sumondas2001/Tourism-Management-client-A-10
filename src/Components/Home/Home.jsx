@@ -3,6 +3,8 @@ import Carousel from "../Carousel/Carousel";
 
 import TouristsSpot from "../TouristsSpot/TouristsSpot";
 import Countries from "../Countries/Countries";
+import BestSpot from "../BestSpot/BestSpot";
+import Booking from "../Booking/Booking";
 
 
 
@@ -31,6 +33,8 @@ const Home = () => {
                </div>
 
                <Countries></Countries>
+               <BestSpot />
+               <Booking></Booking>
 
           </div>
      );

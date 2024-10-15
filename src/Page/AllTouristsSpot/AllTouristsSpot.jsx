@@ -8,7 +8,7 @@ const AllTouristsSpot = () => {
      const [sort, setSort] = useState(allTouristsSpots);
 
 
-     const handleAll = () => {
+     const handleDefault = () => {
           const copy = [...allTouristsSpots];
 
           setSort(copy)
@@ -27,15 +27,15 @@ const AllTouristsSpot = () => {
 
      return (
           <div>
-               <ul className="menu bg-base-200 text- rounded-box w-32">
+               <ul className="menu bg-slate-600 text-white text- rounded-box w-52 my-6  mx-10">
 
 
                     <details open>
                          <summary>Parent</summary>
                          <ul>
-                              <li onClick={handleAll}><a>All</a></li>
-                              <li onClick={handelLowToHigh}><a>Low to High</a></li>
-                              <li onClick={handleHighToLow}><a> High to Low</a></li>
+                              <li onClick={handleDefault}><a>Default </a></li>
+                              <li onClick={handelLowToHigh}><a>Price Low to High</a></li>
+                              <li onClick={handleHighToLow}><a>Price High to Low</a></li>
 
                          </ul>
                     </details>

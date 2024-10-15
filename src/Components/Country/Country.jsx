@@ -1,12 +1,18 @@
 import PropTypes from 'prop-types'; // ES6
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 
 const Country = ({ country }) => {
      const { photoUrl, country_Name, short_description } = country
-
+     useEffect(() => {
+          AOS.init()
+     }, [])
      return (
 
-          <Link to={`/country/${country_Name}`} className=' mt-10 card shadow-2xl'>
+          <Link data-aos="zoom-in" to={`/country/${country_Name}`} className=' mt-10 card shadow-2xl '>
                <img className=" h-64 rounded-t-xl" src={photoUrl} alt="" />
                <div className="mt-4 px-4 mb-4">
                     <h1 className="text-lg mb-4 font-bold  mt-4 ">Country Name : <span className="font-semibold text-red-600">  {country_Name}</span></h1>
